@@ -10,3 +10,5 @@ export const createItem = (item) => model.create(item);
 export const updateItem = (id, item) =>
   model.updateOne({ _id: id }, { $set: item });
 export const deleteItem = (id) => model.deleteOne({ _id: id });
+export const searchItem = (matchAny) =>
+  model.find({itemName: { $regex: matchAny, $options: "i" } });

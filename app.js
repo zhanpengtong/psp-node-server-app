@@ -7,6 +7,7 @@ import session from "express-session";
 import UserRoutes from "./users/routes.js";
 import ItemRoutes from "./items/routes.js";
 import ReviewRoutes from "./reviews/routes.js";
+import CartRoutes from "./carts/routes.js";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING);
 const app = express();
@@ -33,5 +34,6 @@ app.use(express.json());
 UserRoutes(app);
 ItemRoutes(app);
 ReviewRoutes(app);
+CartRoutes(app);
 
 app.listen(process.env.PORT || 4000);

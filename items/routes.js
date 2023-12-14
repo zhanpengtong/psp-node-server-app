@@ -48,6 +48,11 @@ function ItemRoutes(app) {
     const status = await dao.deleteItem(id);
     res.json(status);
   }
+  const searchItem = async (req, res) => {
+    const matchAny = req.params.matchAny;
+    const item = await dao.searchItem(matchAny);
+    res.json(item);
+  }
 
   app.get("/api/items/findbyname/:itemName", findItemByName);
   app.get("/api/items/category/:category", findItemByCategory);
@@ -56,6 +61,7 @@ function ItemRoutes(app) {
   app.post("/api/items/create/:itemName/:Price/:description/:category", createItem);
   app.put("/api/items/update/:id", updateItem);
   app.delete("/api/delete/items/:id", deleteItem);
+  app.get("/api/items/search/:matchAny", searchItem);
 }
 
 export default ItemRoutes;

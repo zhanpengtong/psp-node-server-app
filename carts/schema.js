@@ -3,10 +3,10 @@ const schema = new mongoose.Schema(
     {
         user: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
         itemId: { type: mongoose.Schema.Types.ObjectId, ref: "items" },
-        review: String,
         username: String,
         itemname: String,
+        price: Number,
     },
-    { collection: "reviews" }
+    { collection: "carts" }
     );
-export default schema;  
+export default schema;
