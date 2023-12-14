@@ -1,0 +1,35 @@
+{
+  "type": "module",
+  "name": "psp-node-server-app",
+  "version": "1.0.0",
+  "description": "Node.js HTTP Web server for the psp application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhanpengtong/psp-node-server-app.git"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "Server",
+    "HTTP"
+  ],
+  "author": "Zhanpeng Tong, Chengyi Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhanpengtong/psp-node-server-app/issues"
+  },
+  "homepage": "https://github.com/zhanpengtong/psp-node-server-app#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3"
+  }
+}
