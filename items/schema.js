@@ -5,6 +5,6 @@ const schema  = new mongoose.Schema({
     Price: Number,
     description: String,
     category: String,
-    image: String,
+    image: {type: String, default: "0"},
   }, { collection: "items" });
 export default schema;
