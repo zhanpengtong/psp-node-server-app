@@ -7,8 +7,9 @@ export const findItemByCategory = (category) =>
 export const findAllItem = () => model.find();
 export const findItemById = (id) => model.findById(id);
 export const createItem = (item) => model.create(item);
-export const updateItem = (id, item) =>
-  model.updateOne({ _id: id }, { $set: item });
 export const deleteItem = (id) => model.deleteOne({ _id: id });
 export const searchItem = (matchAny) =>
   model.find({itemName: { $regex: matchAny, $options: "i" } });
+export const findItemBySellerId = (sellerId) => model.find({seller: sellerId});
+export const updateItem = (id, itemName, Price, description, category) => 
+    model.updateOne({_id: id}, {$set: {itemName, Price, description, category}});

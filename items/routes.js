@@ -25,8 +25,9 @@ function ItemRoutes(app) {
   }
 
   const createItem = async (req, res) => {
-    const { itemName, Price, description, category } = req.params;
+    const { userId, itemName, Price, description, category } = req.params;
     const newItem = {
+      seller: userId,
       itemName,
       Price,
       description,
@@ -38,9 +39,12 @@ function ItemRoutes(app) {
 
   const updateItem = async (req, res) => {
     const id = req.params.id;
-    const newItem = req.body;
-    const status = await dao.updateItem(id, newItem);
-    res.json(status);
+    const itemName = req.params.itemName;
+    const Price = req.params.Price;
+    const description = req.params.description;
+    const category = req.params.category;
+    const item = await dao.updateItem(id, itemName, Price, description, category);
+    res.json(item);
   }
 
   const deleteItem = async (req, res) => {
@@ -54,14 +58,21 @@ function ItemRoutes(app) {
     res.json(item);
   }
 
+  const findItemBySellerId = async (req, res) => {
+    const sellerId = req.params.sellerId;
+    const item = await dao.findItemBySellerId(sellerId);
+    res.json(item);
+  }
+
   app.get("/api/items/findbyname/:itemName", findItemByName);
   app.get("/api/items/category/:category", findItemByCategory);
   app.get("/api/items", findAllItem);
   app.get("/api/items/:id", findItemById);
-  app.post("/api/items/create/:itemName/:Price/:description/:category", createItem);
-  app.put("/api/items/update/:id", updateItem);
-  app.delete("/api/delete/items/:id", deleteItem);
+  app.post("/api/items/create/:userId/:itemName/:Price/:description/:category", createItem);
+  app.put("/api/items/update/:id/:itemName/:Price/:description/:category", updateItem);
+  app.delete("/api/items/delete/:id", deleteItem);
   app.get("/api/items/search/:matchAny", searchItem);
+  app.get("/api/items/seller/:sellerId", findItemBySellerId);
 }
 
 export default ItemRoutes;
