@@ -1,51 +1,89 @@
+
 # PSP Node Server App
 
-This is the backend server for the PSP (Personal Support Platform) project, built with **Node.js** and **Express.js**. It serves as the API layer and handles business logic and data management.
+This is the backend service for the **Personal Study Planner (PSP)** application. It is built with **Node.js**, **Express.js**, and connects to a MongoDB database. This server provides RESTful APIs to handle user accounts, study goals, schedules, and task management features.
 
-## 🔧 Features
+👉 **Frontend repository**: [psp-react-web-app](https://github.com/zhanpengtong/psp-react-web-app)
 
+---
+
+## 🛠️ Tech Stack
+
+- **Node.js** with **Express.js**
+- **MongoDB** for persistent storage
+- **Mongoose** as ODM (if applicable)
+- **CORS**, **Body-Parser**, and other middleware
 - RESTful API design
-- User management and authentication
-- CRUD operations for platform data
-- Middleware-based request validation and logging
 
-## 🛠 Tech Stack
+---
 
-- Node.js
-- Express.js
-- MongoDB or MySQL (add your DB here)
-- JWT for Authentication
+## 📁 Project Structure
 
-## 📦 Installation
+```
+psp-node-server-app/
+├── controllers/         # Request handling logic
+├── models/              # Mongoose models (User, Task, etc.)
+├── routes/              # API endpoints (user, tasks, auth)
+├── middleware/          # Auth or error-handling middleware
+├── config/              # MongoDB connection & app config
+├── .env                 # Environment variables
+├── server.js            # Entry point
+└── package.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/zhanpengtong/psp-node-server-app.git
 cd psp-node-server-app
+```
+
+### 2. Install dependencies
+
+```bash
 npm install
+```
+
+### 3. Create a `.env` file
+
+```env
+PORT=4000
+MONGODB_URI=mongodb://localhost:27017/psp
+```
+
+### 4. Start the server
+
+```bash
 npm start
 ```
 
-This will start the server on `http://localhost:4000` (or your configured port)
+Server will run at: `http://localhost:4000`
 
-## 📁 Project Structure
+---
 
-- `/routes` – API endpoint definitions
-- `/controllers` – Business logic
-- `/models` – Database models
-- `server.js` – Entry point
+## 📡 API Overview
 
-## 🖥 API Usage
+Example endpoints (exact routes may vary):
 
-All routes are prefixed with `/api`. Example:
+- `POST /api/users/register`
+- `POST /api/users/login`
+- `GET /api/tasks`
+- `POST /api/tasks`
+- `PUT /api/tasks/:id`
+- `DELETE /api/tasks/:id`
 
-```http
-GET /api/users
-```
+---
 
 ## 👩‍💻 Author Contribution
 
-Backend routes, authentication, and controller logic were developed by Zhanpeng Tong.
+This backend project was developed as part of a full-stack system. **Zhanpeng Tong** was primarily responsible for the backend design, API implementation, and server integration.
+
+---
 
 ## 📄 License
 
-This project is for educational and portfolio use only.
+This project is for educational and portfolio purposes only.
